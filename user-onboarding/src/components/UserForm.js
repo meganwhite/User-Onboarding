@@ -49,6 +49,8 @@ const UserForm = ({ errors, touched, values, handleSubmit, status }) => {
                             />
                             <span className="checkmark" />
                         </label>
+                        {touched.terms && errors.terms && <p className="error">{errors.terms}</p>}
+
             
                         <button type="submit">Submit!</button>
                         </Form>
@@ -86,7 +88,8 @@ const UserForm = ({ errors, touched, values, handleSubmit, status }) => {
     validationSchema: Yup.object().shape({
       name: Yup.string().required('We need to know your name!'),
       email: Yup.string().required('We need to know your email!'),
-      password: Yup.string().required('You\'re gonna want a password!')
+      password: Yup.string().required('You\'re gonna want a password!'),
+      terms: Yup.bool().oneOf([true],'You must agree to our terms!'),
     }),
   
     handleSubmit(values, { setStatus }) {
