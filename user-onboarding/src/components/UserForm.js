@@ -86,7 +86,7 @@ const UserForm = ({ errors, touched, values, handleSubmit, status }) => {
     validationSchema: Yup.object().shape({
       name: Yup.string().required('We need to know your name!'),
       email: Yup.string().required('We need to know your email!'),
-      password: Yup.string('You\'re gonna want a password!')
+      password: Yup.string().required('You\'re gonna want a password!')
     }),
   
     handleSubmit(values, { setStatus }) {
