@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Form, Field, withFormik } from 'formik';
 import * as Yup from 'yup';
+import { Card } from 'semantic-ui-react'
 
 
 const UserForm = ({ errors, touched, values, handleSubmit, status }) => {
@@ -31,11 +32,11 @@ const UserForm = ({ errors, touched, values, handleSubmit, status }) => {
 
           <Field component="select" className="role-select" name="role">
           <option>Please Choose an Option</option>
-          <option value="front-end developer">Front-end developer</option>
-          <option value="back-end developer">Back-end developer</option>
-          <option value="ux designer">UX designer</option>
-          <option value="ui designer">UI designer</option>
-          <option value="data scientist">Data scientist</option>
+          <option value="Front-end developer">Front-end developer</option>
+          <option value="Back-end developer">Back-end developer</option>
+          <option value="UX designer">UX designer</option>
+          <option value="UI designer">UI designer</option>
+          <option value="Data scientist">Data scientist</option>
         </Field>
   
           <label className="checkbox-container">
@@ -52,10 +53,16 @@ const UserForm = ({ errors, touched, values, handleSubmit, status }) => {
         </Form>
 
         {users.map(user => (
-        <div className = '>user-card'>
-            <p key={user.id}>{user.name}</p>
-            <p key={user.id}>{user.role}</p>
-        </div>
+        <Card>
+            <div className = "ui cards">
+                <div class="card">
+                    <div class="content">
+                        <div class="header" key={user.id}>{user.name}</div>
+                        <div class="meta" key={user.id}>{user.role}</div>
+                    </div>
+                </div>
+            </div>
+        </Card>
       ))}
 
       </div>
